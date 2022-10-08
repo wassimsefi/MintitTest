@@ -7,7 +7,7 @@ import 'package:mintit/utils/colors.dart';
 import 'package:mintit/utils/size_config.dart';
 import 'package:mintit/viewmodels/raning_view_list_model.dart';
 import 'package:mintit/views/home/components/HomeBody.dart';
-import 'package:mintit/widgets/new_card.dart';
+import 'package:mintit/widgets/CardsWidget.dart';
 import 'package:provider/provider.dart';
 
 class HomeViewPage extends StatefulWidget {
@@ -26,7 +26,9 @@ class _HomeViewPageState extends State<HomeViewPage> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => RaningListViewModel(),
-      child: HomeBody(widget.firstname, widget.lastname),
+      child: Scaffold(
+        body: HomeBody(widget.firstname, widget.lastname),
+      ),
     );
   }
 }
