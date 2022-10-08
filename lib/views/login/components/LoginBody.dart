@@ -147,7 +147,7 @@ class _LoginBodyState extends State<LoginBody> {
                   borderSide: BorderSide(
                     color: firstnameController.text.isEmpty
                         ? ColorsApp.kbordorColor
-                        : ColorsApp.kPrimaryColor,
+                        : ColorsApp.kbordorcursorColor,
                   )),
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(5),
@@ -207,7 +207,7 @@ class _LoginBodyState extends State<LoginBody> {
                   borderSide: BorderSide(
                     color: firstnameController.text.isEmpty
                         ? ColorsApp.kbordorColor
-                        : ColorsApp.kPrimaryColor,
+                        : ColorsApp.kbordorcursorColor,
                   )),
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(5),
