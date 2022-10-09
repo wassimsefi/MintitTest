@@ -30,14 +30,12 @@ class _NewCardState extends State<NewCard> {
           Expanded(
             flex: 1,
             child: CircleAvatar(
-                radius: 30,
-                backgroundColor: Colors.white,
-                child: CircleAvatar(
-                  radius: 45,
-                  backgroundImage: AssetImage(
-                    "assets/images/${widget.raning.image}.png",
-                  ),
-                )),
+              backgroundColor: ColorsApp.kSecondaryColor,
+              radius: 30,
+              backgroundImage: AssetImage(
+                "assets/images/${widget.raning.image}.png",
+              ),
+            ),
           ),
           SizedBox(
             width: SizeConfig.screenWidth! * 0.05,

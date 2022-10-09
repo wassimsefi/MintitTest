@@ -22,23 +22,29 @@ class _HomeTopState extends State<HomeTop> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const CircleAvatar(
-              backgroundColor: ColorsApp.kSecondaryColor,
-              radius: 35,
-              child: CircleAvatar(
+          const Expanded(
+            flex: 1,
+            child: CircleAvatar(
                 backgroundColor: ColorsApp.kSecondaryColor,
-                radius: 32,
-                backgroundImage: AssetImage(
-                  'assets/images/logo_user.png',
-                ),
-              )),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              richText(24, Colors.white, "Good morning,", FontWeight.w900),
-              richText(15, Colors.white,
-                  "${widget.firstname} ${widget.lastname}", FontWeight.w200),
-            ],
+                radius: 35,
+                child: CircleAvatar(
+                  backgroundColor: ColorsApp.kSecondaryColor,
+                  radius: 32,
+                  backgroundImage: AssetImage(
+                    'assets/images/logo_user.png',
+                  ),
+                )),
+          ),
+          Expanded(
+            flex: 2,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                richText(24, Colors.white, "Good morning,", FontWeight.w900),
+                richText(15, Colors.white,
+                    "${widget.firstname} ${widget.lastname}", FontWeight.w200),
+              ],
+            ),
           ),
         ],
       ),

@@ -1,4 +1,4 @@
-import '../views/models/Raning.dart';
+import 'package:mintit/models/raning.dart';
 
 class RaningViewModel {
   final Raning _Raning;

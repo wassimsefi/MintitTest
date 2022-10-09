@@ -1,4 +1,4 @@
-import 'package:mintit/views/models/raning.dart';
+import 'package:mintit/models/raning.dart';
 
 List<Raning> listRaning = [
   Raning(

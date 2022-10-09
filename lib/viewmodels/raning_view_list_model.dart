@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mintit/models/raning.dart';
 import 'package:mintit/services/web_service.dart';
 import 'package:mintit/viewmodels/raning_view_model.dart';
-import 'package:mintit/views/models/Raning.dart';
 
 enum LoadingStatus {
   completed,
@@ -53,9 +53,9 @@ class RaningListViewModel with ChangeNotifier {
   ];
 
   void topRaning() async {
-    List<Raning> newRanings = listRaning;
-    ranings =
-        newRanings.map((raning) => RaningViewModel(raning: raning)).toList();
+    ranings = await listRaning
+        .map((raning) => RaningViewModel(raning: raning))
+        .toList();
 
     if (ranings.isEmpty) {
       loadingStatus = LoadingStatus.empty;

@@ -1,4 +1,4 @@
-import '../views/models/user.dart';
+import '../models/user.dart';
 
 class UserViewModel {
   final User _user;

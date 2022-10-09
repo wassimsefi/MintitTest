@@ -8,10 +8,6 @@ class ColorsApp {
   static const kbordorcursorColor = Color(0xFF21A02E);
   static const kcursorColor = Color(0xFF151624);
 
-//const kSecondaryColor = Color.fromARGB(255, 243, 149, 123);
-
-//static const kPrimaryLightColor = Colors.white;
-
   static const kTextColor = Color(0xFF757575);
 
   static const kbackgroundGradientColor = LinearGradient(

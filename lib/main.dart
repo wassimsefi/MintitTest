@@ -1,11 +1,12 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:mintit/utils/colors.dart';
 import 'package:mintit/utils/routes.dart';
 import 'package:mintit/viewmodels/raning_view_list_model.dart';
 import 'package:mintit/views/SplashScreenViewPage.dart';
 import 'package:mintit/views/home/HomeViewPage.dart';
-import 'package:mintit/views/models/user.dart';
+import 'package:mintit/models/user.dart';
 import 'package:provider/provider.dart';
 import 'package:splashscreen/splashscreen.dart';
 
@@ -21,6 +22,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarcolor.setStatusBarColor(ColorsApp.kPrimaryColor);
+
     return MaterialApp(
       useInheritedMediaQuery: true,
       debugShowCheckedModeBanner: false,

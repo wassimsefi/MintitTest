@@ -46,8 +46,8 @@ class _HomeBodyState extends State<HomeBody> {
                   padding: const EdgeInsets.fromLTRB(8, 20, 8, 8),
                   child: Column(
                     children: [
-                      richText(
-                          24, ColorsApp.kPrimaryColor, "Top 10 ranking 2021"),
+                      richText(24, ColorsApp.kPrimaryColor,
+                          "Top 10 ranking 2021", FontWeight.w900),
                       const SizedBox(
                         height: 50,
                       ),
@@ -71,20 +71,21 @@ class _HomeBodyState extends State<HomeBody> {
     double fontSize,
     Color color,
     String text,
+    FontWeight fontWeight,
   ) {
     return Text.rich(
       TextSpan(
         style: GoogleFonts.inter(
           fontSize: fontSize,
           color: color,
-          letterSpacing: 2.000000061035156,
+          // letterSpacing: 2.000000061035156,
         ),
         children: [
           TextSpan(
             text: text,
             style: TextStyle(
               color: color,
-              fontWeight: FontWeight.w800,
+              fontWeight: fontWeight,
             ),
           ),
         ],
