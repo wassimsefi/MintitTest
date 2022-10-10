@@ -7,6 +7,7 @@ import 'package:mintit/viewmodels/raning_view_list_model.dart';
 import 'package:mintit/views/SplashScreenViewPage.dart';
 import 'package:mintit/views/home/HomeViewPage.dart';
 import 'package:mintit/models/user.dart';
+import 'package:mintit/views/login/LoginViewPage.dart';
 import 'package:provider/provider.dart';
 import 'package:splashscreen/splashscreen.dart';
 

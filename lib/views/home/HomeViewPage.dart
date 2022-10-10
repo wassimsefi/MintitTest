@@ -24,10 +24,12 @@ class HomeViewPage extends StatefulWidget {
 class _HomeViewPageState extends State<HomeViewPage> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
     return ChangeNotifierProvider(
       create: (_) => RaningListViewModel(),
       child: Scaffold(
-        body: HomeBody(widget.firstname, widget.lastname),
+        body: SafeArea(child: HomeBody(widget.firstname, widget.lastname)),
       ),
     );
   }

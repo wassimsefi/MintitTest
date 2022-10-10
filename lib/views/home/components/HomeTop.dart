@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mintit/utils/colors.dart';
+import 'package:mintit/utils/size_config.dart';
 
 class HomeTop extends StatefulWidget {
   String firstname;
@@ -17,34 +18,31 @@ class _HomeTopState extends State<HomeTop> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 60),
+      padding: EdgeInsets.symmetric(
+          vertical: getProportionateScreenHeight(22),
+          horizontal: getProportionateScreenWidth(37)),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const Expanded(
-            flex: 1,
-            child: CircleAvatar(
-                backgroundColor: ColorsApp.kSecondaryColor,
-                radius: 35,
-                child: CircleAvatar(
-                  backgroundColor: ColorsApp.kSecondaryColor,
-                  radius: 32,
-                  backgroundImage: AssetImage(
-                    'assets/images/logo_user.png',
-                  ),
-                )),
+          Image.asset(
+            'assets/images/logo_user.png',
+            width: getProportionateScreenWidth(67),
+            height: getProportionateScreenHeight(67),
           ),
-          Expanded(
-            flex: 2,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                richText(24, Colors.white, "Good morning,", FontWeight.w900),
-                richText(15, Colors.white,
-                    "${widget.firstname} ${widget.lastname}", FontWeight.w200),
-              ],
-            ),
+          SizedBox(
+            width: getProportionateScreenWidth(24),
+          ),
+          Column(
+            //mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              richText(getProportionateScreenHeight(20), "Good morning,",
+                  FontWeight.w700),
+              SizedBox(
+                height: getProportionateScreenHeight(3),
+              ),
+              richText(getProportionateScreenHeight(16),
+                  "${widget.firstname} ${widget.lastname}", FontWeight.w400),
+            ],
           ),
         ],
       ),
@@ -53,26 +51,16 @@ class _HomeTopState extends State<HomeTop> {
 
   Widget richText(
     double fontSize,
-    Color color,
     String text,
     FontWeight fontWeight,
   ) {
-    return Text.rich(
-      TextSpan(
-        style: GoogleFonts.inter(
-          fontSize: fontSize,
-          color: color,
-          // letterSpacing: 2.000000061035156,
-        ),
-        children: [
-          TextSpan(
-            text: text,
-            style: TextStyle(
-              color: color,
-              fontWeight: fontWeight,
-            ),
-          ),
-        ],
+    return Text(
+      text,
+      style: TextStyle(
+        fontFamily: 'Rounded',
+        fontWeight: fontWeight,
+        color: ColorsApp.kSecondaryColor,
+        fontSize: fontSize,
       ),
     );
   }

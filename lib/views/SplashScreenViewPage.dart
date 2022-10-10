@@ -19,7 +19,7 @@ class SplashScreenViewPage extends StatefulWidget {
 class _SplashScreenViewPageState extends State<SplashScreenViewPage> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const LoginViewPage()));
     });
@@ -37,8 +37,14 @@ class _SplashScreenViewPageState extends State<SplashScreenViewPage> {
         ),
         width: SizeConfig.screenWidth,
         height: SizeConfig.screenHeight,
-        child:
-            SvgPicture.asset('assets/svg/logo_app.svg', fit: BoxFit.scaleDown),
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+              vertical: getProportionateScreenHeight(412),
+              horizontal: getProportionateScreenWidth(64)),
+          child: SvgPicture.asset(
+            'assets/svg/logo_app.svg',
+          ),
+        ),
       ),
     );
   }

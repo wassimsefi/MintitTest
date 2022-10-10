@@ -28,11 +28,9 @@ class _LoginBodyState extends State<LoginBody> {
         //  alignment: Alignment.center,
         children: [
           SizedBox(
-            height: SizeConfig.screenHeight! * 0.16,
+            height: getProportionateScreenHeight(144),
           ),
-          Image.asset(
-            'assets/images/logo_2.png',
-          ),
+          imageLogin(),
           buildCard()
         ],
       ),
@@ -47,34 +45,29 @@ class _LoginBodyState extends State<LoginBody> {
           //logo & text
 
           SizedBox(
-            height: SizeConfig.screenHeight! * 0.05,
+            height: getProportionateScreenHeight(48),
           ),
           richText(24),
           SizedBox(
-            height: SizeConfig.screenHeight! * 0.01,
+            height: getProportionateScreenHeight(10),
           ),
           const Text("Introduce Yourself"),
           SizedBox(
-            height: SizeConfig.screenHeight! * 0.1,
+            height: getProportionateScreenHeight(153),
           ),
 
           //firstname & lastname textField
 
           firstnameTextField(),
-
           SizedBox(
-            height: SizeConfig.screenHeight! * 0.02,
+            height: getProportionateScreenHeight(23),
           ),
           lastnameTextField(),
-          SizedBox(
-            height: SizeConfig.screenHeight! * 0.05,
-          ),
 
           //remember & forget text
           SizedBox(
-            height: SizeConfig.screenHeight! * 0.05,
+            height: getProportionateScreenHeight(99),
           ),
-
           //sign in button
           loginButton(),
         ],
@@ -82,36 +75,38 @@ class _LoginBodyState extends State<LoginBody> {
     );
   }
 
+  Widget imageLogin() {
+    return Image.asset(
+      'assets/images/logo_2.png',
+      width: getProportionateScreenWidth(153),
+      height: getProportionateScreenHeight(38),
+    );
+  }
+
   Widget richText(double fontSize) {
-    return Text.rich(
-      TextSpan(
-        style: GoogleFonts.inter(
-          fontSize: fontSize,
-          color: Colors.black,
-        ),
-        children: const [
-          TextSpan(
-            text: 'Let’s Get Familiar',
-            style: TextStyle(
-              fontWeight: FontWeight.w900,
-            ),
-          ),
-        ],
-      ),
+    return const Text(
+      'Let’s Get Familiar',
+      style: TextStyle(
+          fontFamily: 'Rounded', fontWeight: FontWeight.w700, fontSize: 30),
     );
   }
 
   Widget firstnameTextField() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding:
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(48)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             "First name",
+            style: TextStyle(
+                fontFamily: 'Rounded',
+                fontWeight: FontWeight.w400,
+                fontSize: 15),
           ),
           SizedBox(
-            height: SizeConfig.screenHeight! * 0.01,
+            height: getProportionateScreenHeight(8),
           ),
           TextFormField(
             controller: firstnameController,
@@ -125,17 +120,18 @@ class _LoginBodyState extends State<LoginBody> {
               }
               return null;
             },
-            style: GoogleFonts.inter(
-              fontSize: 18.0,
-              color: ColorsApp.kcursorColor,
-            ),
+            style: const TextStyle(
+                fontFamily: 'Rounded',
+                fontWeight: FontWeight.w400,
+                fontSize: 15),
             maxLines: 1,
             keyboardType: TextInputType.name,
             cursorColor: ColorsApp.kcursorColor,
             decoration: InputDecoration(
               hintText: 'Enter your firstName',
               hintStyle: GoogleFonts.inter(
-                fontSize: 16.0,
+                fontWeight: FontWeight.w400,
+                fontSize: 15.0,
                 color: ColorsApp.kcursorColor.withOpacity(0.5),
               ),
               filled: true,
@@ -163,15 +159,20 @@ class _LoginBodyState extends State<LoginBody> {
 
   Widget lastnameTextField() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding:
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(48)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             "Last name",
+            style: TextStyle(
+                fontFamily: 'Rounded',
+                fontWeight: FontWeight.w400,
+                fontSize: 15),
           ),
           SizedBox(
-            height: SizeConfig.screenHeight! * 0.01,
+            height: getProportionateScreenHeight(8),
           ),
           TextFormField(
             controller: lastnameController,
@@ -185,17 +186,18 @@ class _LoginBodyState extends State<LoginBody> {
               }
               return null;
             },
-            style: GoogleFonts.inter(
-              fontSize: 18.0,
-              color: ColorsApp.kcursorColor,
-            ),
+            style: const TextStyle(
+                fontFamily: 'Rounded',
+                fontWeight: FontWeight.w400,
+                fontSize: 15),
             maxLines: 1,
             keyboardType: TextInputType.name,
             cursorColor: ColorsApp.kcursorColor,
             decoration: InputDecoration(
               hintText: 'Enter your lastName',
               hintStyle: GoogleFonts.inter(
-                fontSize: 16.0,
+                fontWeight: FontWeight.w400,
+                fontSize: 15.0,
                 color: ColorsApp.kcursorColor.withOpacity(0.5),
               ),
               filled: true,
@@ -222,55 +224,51 @@ class _LoginBodyState extends State<LoginBody> {
   }
 
   Widget loginButton() {
-    return TextButton(
-        onPressed: () async {
-          if (_formKey.currentState!.validate()) {
-            _formKey.currentState!.save();
+    return Padding(
+      padding:
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(102)),
+      child: TextButton(
+          onPressed: () async {
+            if (_formKey.currentState!.validate()) {
+              _formKey.currentState!.save();
 
-            Navigator.pop(context);
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => HomeViewPage(
-                        firstnameController.text, lastnameController.text)));
+              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => HomeViewPage(
+                          firstnameController.text, lastnameController.text)));
 
-            // Navigator.pushNamed(context, HomeViewPage.routeName);
-          }
-        },
-        child: Container(
-          alignment: Alignment.center,
-          height: SizeConfig.screenHeight! / 13,
-          width: SizeConfig.screenWidth! * 0.7,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5.0),
-            gradient: ColorsApp.kbackgroundGradientColor,
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0xFF4C2E84).withOpacity(0.2),
-                offset: const Offset(0, 15.0),
-                blurRadius: 60.0,
-              ),
-            ],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                'NEXT',
-                style: GoogleFonts.inter(
-                  fontSize: 20.0,
-                  color: ColorsApp.kSecondaryColor,
-                  fontWeight: FontWeight.w600,
-                  height: 1.5,
+              // Navigator.pushNamed(context, HomeViewPage.routeName);
+            }
+          },
+          child: Container(
+            alignment: Alignment.center,
+            height: getProportionateScreenHeight(55),
+            width: getProportionateScreenWidth(209),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5.0),
+              gradient: ColorsApp.kbackgroundGradientColor,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const [
+                Text(
+                  'NEXT',
+                  style: TextStyle(
+                      fontFamily: 'Rounded',
+                      fontWeight: FontWeight.w700,
+                      fontSize: 20,
+                      color: ColorsApp.kSecondaryColor),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              const Icon(
-                Icons.arrow_right,
-                color: ColorsApp.kSecondaryColor,
-              )
-            ],
-          ),
-        ));
+                Icon(
+                  Icons.arrow_right,
+                  color: ColorsApp.kSecondaryColor,
+                )
+              ],
+            ),
+          )),
+    );
   }
 }

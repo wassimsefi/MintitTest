@@ -19,39 +19,35 @@ class _NewCardState extends State<NewCard> {
     SizeConfig().init(context);
 
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.symmetric(
+          horizontal: getProportionateScreenWidth(27),
+          vertical: getProportionateScreenWidth(12)),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Expanded(
-              flex: 1,
-              child: richText(15, ColorsApp.kPrimaryColor, widget.raning.id,
-                  FontWeight.w900)),
-          Expanded(
-            flex: 1,
-            child: CircleAvatar(
-              backgroundColor: ColorsApp.kSecondaryColor,
-              radius: 30,
-              backgroundImage: AssetImage(
-                "assets/images/${widget.raning.image}.png",
-              ),
+          richText(
+              15, ColorsApp.kPrimaryColor, widget.raning.id, FontWeight.w900),
+          SizedBox(
+            width: getProportionateScreenWidth(31),
+          ),
+          CircleAvatar(
+            backgroundColor: ColorsApp.kSecondaryColor,
+            radius: 30,
+            backgroundImage: AssetImage(
+              "assets/images/${widget.raning.image}.png",
             ),
           ),
           SizedBox(
-            width: SizeConfig.screenWidth! * 0.05,
+            width: getProportionateScreenWidth(31),
           ),
-          Expanded(
-            flex: 4,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                richText(15, ColorsApp.kcursorColor, widget.raning.name,
-                    FontWeight.w900),
-                richText(13, ColorsApp.kcursorColor, widget.raning.marque,
-                    FontWeight.w200),
-              ],
-            ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              richText(15, ColorsApp.kcursorColor, widget.raning.name,
+                  FontWeight.w900),
+              richText(13, ColorsApp.kcursorColor, widget.raning.marque,
+                  FontWeight.w200),
+            ],
           )
         ],
       ),
