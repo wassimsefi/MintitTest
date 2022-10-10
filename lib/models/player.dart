@@ -1,18 +1,18 @@
-class Raning {
+class Player {
   final String id;
   final String image;
   final String name;
   final String marque;
 
-  Raning({
+  Player({
     required this.id,
     required this.image,
     required this.name,
     required this.marque,
   });
 
-  factory Raning.fromJson(Map<String, dynamic> json) {
-    return Raning(
+  factory Player.fromJson(Map<String, dynamic> json) {
+    return Player(
       id: json['id'],
       image: json['image'],
       name: json['name'],

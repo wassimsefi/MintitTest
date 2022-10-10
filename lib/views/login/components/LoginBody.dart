@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mintit/utils/Strings.dart';
 import 'package:mintit/utils/colors.dart';
 import 'package:mintit/utils/error_message.dart';
 import 'package:mintit/utils/size_config.dart';
-import 'package:mintit/viewmodels/raning_view_list_model.dart';
 import 'package:mintit/views/home/HomeViewPage.dart';
-import 'package:provider/provider.dart';
 
 class LoginBody extends StatefulWidget {
   const LoginBody({super.key});
@@ -47,11 +45,11 @@ class _LoginBodyState extends State<LoginBody> {
           SizedBox(
             height: getProportionateScreenHeight(48),
           ),
-          richText(24),
+          richText(Strings.titleApp, 30, FontWeight.w700),
           SizedBox(
             height: getProportionateScreenHeight(10),
           ),
-          const Text("Introduce Yourself"),
+          richText(Strings.subTitleApp, 20, FontWeight.w400),
           SizedBox(
             height: getProportionateScreenHeight(153),
           ),
@@ -83,11 +81,13 @@ class _LoginBodyState extends State<LoginBody> {
     );
   }
 
-  Widget richText(double fontSize) {
-    return const Text(
-      'Let’s Get Familiar',
+  Widget richText(String text, double fontSize, FontWeight fontWeight) {
+    return Text(
+      text,
       style: TextStyle(
-          fontFamily: 'Rounded', fontWeight: FontWeight.w700, fontSize: 30),
+          fontFamily: Strings.fontRoundedText,
+          fontWeight: fontWeight,
+          fontSize: fontSize),
     );
   }
 
@@ -98,10 +98,10 @@ class _LoginBodyState extends State<LoginBody> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "First name",
+          Text(
+            Strings.inputTextF,
             style: TextStyle(
-                fontFamily: 'Rounded',
+                fontFamily: Strings.fontRoundedText,
                 fontWeight: FontWeight.w400,
                 fontSize: 15),
           ),
@@ -120,15 +120,15 @@ class _LoginBodyState extends State<LoginBody> {
               }
               return null;
             },
-            style: const TextStyle(
-                fontFamily: 'Rounded',
+            style: TextStyle(
+                fontFamily: Strings.fontRoundedText,
                 fontWeight: FontWeight.w400,
                 fontSize: 15),
             maxLines: 1,
             keyboardType: TextInputType.name,
             cursorColor: ColorsApp.kcursorColor,
             decoration: InputDecoration(
-              hintText: 'Enter your firstName',
+              hintText: Strings.hintInputTextF,
               hintStyle: GoogleFonts.inter(
                 fontWeight: FontWeight.w400,
                 fontSize: 15.0,
@@ -164,10 +164,10 @@ class _LoginBodyState extends State<LoginBody> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Last name",
+          Text(
+            Strings.inputTextL,
             style: TextStyle(
-                fontFamily: 'Rounded',
+                fontFamily: Strings.fontRoundedText,
                 fontWeight: FontWeight.w400,
                 fontSize: 15),
           ),
@@ -186,15 +186,15 @@ class _LoginBodyState extends State<LoginBody> {
               }
               return null;
             },
-            style: const TextStyle(
-                fontFamily: 'Rounded',
+            style: TextStyle(
+                fontFamily: Strings.fontRoundedText,
                 fontWeight: FontWeight.w400,
                 fontSize: 15),
             maxLines: 1,
             keyboardType: TextInputType.name,
             cursorColor: ColorsApp.kcursorColor,
             decoration: InputDecoration(
-              hintText: 'Enter your lastName',
+              hintText: Strings.hintInputTextL,
               hintStyle: GoogleFonts.inter(
                 fontWeight: FontWeight.w400,
                 fontSize: 15.0,
@@ -238,8 +238,6 @@ class _LoginBodyState extends State<LoginBody> {
                   MaterialPageRoute(
                       builder: (context) => HomeViewPage(
                           firstnameController.text, lastnameController.text)));
-
-              // Navigator.pushNamed(context, HomeViewPage.routeName);
             }
           },
           child: Container(
@@ -252,17 +250,17 @@ class _LoginBodyState extends State<LoginBody> {
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
+              children: [
                 Text(
-                  'NEXT',
+                  Strings.buttonText,
                   style: TextStyle(
-                      fontFamily: 'Rounded',
+                      fontFamily: Strings.fontRoundedText,
                       fontWeight: FontWeight.w700,
                       fontSize: 20,
                       color: ColorsApp.kSecondaryColor),
                   textAlign: TextAlign.center,
                 ),
-                Icon(
+                const Icon(
                   Icons.arrow_right,
                   color: ColorsApp.kSecondaryColor,
                 )

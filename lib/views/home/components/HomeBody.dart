@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mintit/utils/Strings.dart';
+import 'package:mintit/utils/error_message.dart';
 import 'package:mintit/utils/size_config.dart';
-import 'package:mintit/viewmodels/raning_view_list_model.dart';
+import 'package:mintit/viewmodels/player_view_list_model.dart';
 import 'package:mintit/views/home/components/HomeTop.dart';
 import 'package:mintit/widgets/CardsWidget.dart';
 import 'package:provider/provider.dart';
@@ -23,9 +25,9 @@ class HomeBody extends StatefulWidget {
 class _HomeBodyState extends State<HomeBody> {
   @override
   Widget build(BuildContext context) {
-    context.read<RaningListViewModel>().topRaning();
+    context.read<PlayerListViewModel>().topPlayer();
 
-    final RaningListViewModel runningVM = context.watch<RaningListViewModel>();
+    final PlayerListViewModel runningVM = context.watch<PlayerListViewModel>();
 
     return Container(
       color: ColorsApp.kPrimaryColor,
@@ -34,12 +36,11 @@ class _HomeBodyState extends State<HomeBody> {
       child: Column(
         children: <Widget>[
           HomeTop(widget.firstname, widget.lastname),
-
           Expanded(
             child: Container(
               height: SizeConfig.screenHeight!,
               decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: ColorsApp.kSecondaryColor,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30))),
@@ -52,8 +53,8 @@ class _HomeBodyState extends State<HomeBody> {
                     SizedBox(
                       height: getProportionateScreenHeight(26),
                     ),
-                    richText(24, ColorsApp.kPrimaryColor, "Top 10 ranking 2021",
-                        FontWeight.w900),
+                    richText(20, ColorsApp.kPrimaryColor, Strings.homeText,
+                        FontWeight.w700),
                     SizedBox(
                       height: getProportionateScreenHeight(26),
                     ),
@@ -96,18 +97,18 @@ class _HomeBodyState extends State<HomeBody> {
     );
   }
 
-  Widget _buildList(RaningListViewModel r) {
+  Widget _buildList(PlayerListViewModel r) {
     switch (r.loadingStatus) {
       case LoadingStatus.searching:
         return const Center(
           child: CircularProgressIndicator(),
         );
       case LoadingStatus.completed:
-        return CardsWidget(ranings: r.ranings);
+        return CardsWidget(players: r.players);
       case LoadingStatus.empty:
       default:
         return const Center(
-          child: Text("No results found"),
+          child: Text(kDataNullError),
         );
     }
   }

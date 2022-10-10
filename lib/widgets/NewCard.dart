@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mintit/utils/colors.dart';
-import 'package:mintit/viewmodels/raning_view_model.dart';
+import 'package:mintit/viewmodels/player_view_model.dart';
 
 import '../utils/size_config.dart';
 
 class NewCard extends StatefulWidget {
-  RaningViewModel raning;
-  NewCard(this.raning, {super.key});
+  PlayerViewModel player;
+  NewCard(this.player, {super.key});
 
   @override
   State<NewCard> createState() => _NewCardState();
@@ -25,7 +25,7 @@ class _NewCardState extends State<NewCard> {
       child: Row(
         children: [
           richText(
-              15, ColorsApp.kPrimaryColor, widget.raning.id, FontWeight.w900),
+              15, ColorsApp.kPrimaryColor, widget.player.id, FontWeight.w900),
           SizedBox(
             width: getProportionateScreenWidth(31),
           ),
@@ -33,7 +33,7 @@ class _NewCardState extends State<NewCard> {
             backgroundColor: ColorsApp.kSecondaryColor,
             radius: 30,
             backgroundImage: AssetImage(
-              "assets/images/${widget.raning.image}.png",
+              "assets/images/${widget.player.image}.png",
             ),
           ),
           SizedBox(
@@ -43,9 +43,9 @@ class _NewCardState extends State<NewCard> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              richText(15, ColorsApp.kcursorColor, widget.raning.name,
+              richText(15, ColorsApp.kcursorColor, widget.player.name,
                   FontWeight.w900),
-              richText(13, ColorsApp.kcursorColor, widget.raning.marque,
+              richText(13, ColorsApp.kcursorColor, widget.player.marque,
                   FontWeight.w200),
             ],
           )

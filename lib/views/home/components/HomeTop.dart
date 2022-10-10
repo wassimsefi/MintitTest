@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mintit/utils/Strings.dart';
 import 'package:mintit/utils/colors.dart';
 import 'package:mintit/utils/size_config.dart';
 
@@ -35,7 +36,7 @@ class _HomeTopState extends State<HomeTop> {
             //mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              richText(getProportionateScreenHeight(20), "Good morning,",
+              richText(getProportionateScreenHeight(20), Strings.homeTitleText,
                   FontWeight.w700),
               SizedBox(
                 height: getProportionateScreenHeight(3),
@@ -57,7 +58,7 @@ class _HomeTopState extends State<HomeTop> {
     return Text(
       text,
       style: TextStyle(
-        fontFamily: 'Rounded',
+        fontFamily: Strings.fontRoundedText,
         fontWeight: fontWeight,
         color: ColorsApp.kSecondaryColor,
         fontSize: fontSize,

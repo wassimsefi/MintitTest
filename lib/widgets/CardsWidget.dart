@@ -2,21 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:mintit/viewmodels/raning_view_model.dart';
+import 'package:mintit/viewmodels/player_view_model.dart';
 import 'package:mintit/widgets/NewCard.dart';
 
 import '../utils/size_config.dart';
 
 class CardsWidget extends StatelessWidget {
-  final List<RaningViewModel> ranings;
+  final List<PlayerViewModel> players;
 
-  CardsWidget({required this.ranings});
+  CardsWidget({required this.players});
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: ranings.length,
+      itemCount: players.length,
       itemBuilder: (BuildContext context, int index) {
-        final raning = ranings[index];
+        final player = players[index];
         return Container(
           margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
           height: 80,
@@ -25,7 +25,7 @@ class CardsWidget extends StatelessWidget {
               style: const NeumorphicStyle(
                 color: Colors.white,
               ),
-              child: NewCard(raning)),
+              child: NewCard(player)),
         );
       },
     );

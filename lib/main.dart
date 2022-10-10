@@ -3,13 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:mintit/utils/colors.dart';
 import 'package:mintit/utils/routes.dart';
-import 'package:mintit/viewmodels/raning_view_list_model.dart';
 import 'package:mintit/views/SplashScreenViewPage.dart';
-import 'package:mintit/views/home/HomeViewPage.dart';
-import 'package:mintit/models/user.dart';
-import 'package:mintit/views/login/LoginViewPage.dart';
-import 'package:provider/provider.dart';
-import 'package:splashscreen/splashscreen.dart';
 
 void main() {
   runApp(const MyApp());
