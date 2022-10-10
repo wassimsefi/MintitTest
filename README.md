@@ -15,9 +15,7 @@ In this application , we have three screens:
 
 - provider：state managing
 - flutter_svg：painting and displaying Scalable Vector Graphics
-- google_fonts：changing fonts
 - flutter_neumorphic：ui kit for Flutter. Dark theming compatible & fully customizable.
-- provider：state managing
 
 ## Assets, Fonts
 
