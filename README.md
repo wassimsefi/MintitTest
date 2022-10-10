@@ -28,6 +28,11 @@ In this application , we have three screens:
 - player
 - user
 
+## Versions
+
+- Flutter 3.3.2
+- Dart 2.18.1
+
 
 
 
