@@ -1,12 +1,8 @@
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_svg/svg.dart';
 import 'package:mintit/utils/colors.dart';
 import 'package:mintit/utils/size_config.dart';
-import 'package:mintit/views/login/LoginViewPage.dart';
-import 'package:splashscreen/splashscreen.dart';
 
 class SplashScreenViewPage extends StatefulWidget {
   static const String routeName = "/splash_screen";
